@@ -14,18 +14,17 @@ var manager = new TradeOfferManager({
 var request = require('request'),
     url = 'https://api.csgofast.com/price/all';
 
-		function getPrice() {
-		    request(url, (error, response, body) => {
-		        if (!error && response.statusCode === 200) {
-
-		            var jsonResponse = JSON.parse(body);
-								fs.writeFile('prices.json', body);
-		        } else {
-		            console.log("Got an error: ", error, ", status code: ", response.statusCode);
-		        }
-		    });
+function getPrice() {
+	request(url, (error, response, body) => {
+		if (!error && response.statusCode === 200) {
+			var jsonResponse = JSON.parse(body);
+			fs.writeFile('prices.json', body);
+		} else {
+			console.log("Got an error: ", error, ", status code: ", response.statusCode);
 		}
-		getPrice();
+	});
+}
+getPrice();
 setInterval(function() {
 	getPrice();
 }, 30 * 1000);
