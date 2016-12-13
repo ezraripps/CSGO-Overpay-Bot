@@ -28,14 +28,12 @@ getPrice();
 setInterval(function() {
 	getPrice();
 }, 30 * 1000);
-function logOn() {
-	client.logOn({
-		"accountName": config.username,
-		"password": config.password,
-		"twoFactorCode": SteamTotp.generateAuthCode(config.sharedSecret)
-	});
-}
-logOn();
+client.logOn({
+	"accountName": config.username,
+	"password": config.password,
+	"twoFactorCode": SteamTotp.generateAuthCode(config.sharedSecret)
+});
+
 
 client.on('webSession', function(sessionID, cookies) {
 	manager.setCookies(cookies, function(err) {
