@@ -58,12 +58,6 @@ client.on('loggedOn', function(details) {
 	client.setPersona(SteamUser.EPersonaState.Online);
 });
 
-var manager = new TradeOfferManager({
-	"steam": client,
-	"domain": "nothinghere",
-	"language": "en"
-});
-
 client.on('webSession', function(sessionID, cookies) {
 	manager.setCookies(cookies, function(err) {
 		if (err) {
