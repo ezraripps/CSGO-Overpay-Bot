@@ -28,7 +28,7 @@ client.logOn({
 });
 client.on('loggedOn', () => {
 	console.log("Logged into Steam as " + client.steamID.getSteam3RenderedID());
-	client.setPersona(SteamUser.EPersonaState.Online);
+	client.setPersona(SteamUser.Steam.EPersonaState.Online,config.botname);
 	getPrice();
 });
 
