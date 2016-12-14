@@ -1,6 +1,7 @@
 {
   "username": "",
   "password": "",
+  "botname":"",
   "identitySecret": "",
   "sharedSecret": "",
   "options": {
