@@ -5,8 +5,8 @@
   "identitySecret": "",
   "sharedSecret": "",
   "options": {
-	"priceRefreshInterval": 30,
-	"confirmationInterval": 30,
+    "priceRefreshInterval": 30,
+    "confirmationInterval": 30,
     "percentamount": 0.95,
     "chatResponse": {
       "donation": "Thanks for donating to the bot :) have a nice day",
