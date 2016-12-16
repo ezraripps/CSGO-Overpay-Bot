@@ -36,7 +36,22 @@ function getPrices(offer) {
 	return offervalue; //Return Total offer value
 }
 
+/*
+	Friend requests and Chat
+*/
+client.on('friendRelationship', (steamid, relationship) => {
+	if (relationship === 2 && config.options.acceptRandomFriendRequests) {
+		client.addFriend(steamid);
+		client.chatMessage(steamid, config.options.chatResponse.newFriend);
+	}
+});
 
+client.on('friendMessage', function(steamID, message) {
+	console.log(config.options.chatResponse.commands[message]);
+	if (config.options.chatResponse.commands[message]) {
+		client.chatMessage(steamID, config.options.chatResponse.commands[message]);
+	}
+});
 
 /*
 	Getting price from API
@@ -74,6 +89,23 @@ function acceptOffer(offer) {
 
 manager.on('newOffer', function(offer) {
 	const partnerid = offer.partner.getSteamID64(); //Getting Offer partner steamid
+
+	offer.getUserDetails((err, me, them) => {
+		if(err) {
+			log(err);
+			return;
+		}
+
+		if(them.escrowDays > 0) {
+			console.log('User has escrow! Declining!');
+			offer.decline((err) => {
+				if(err) {
+					log(prefix + 'Error declining offer!');
+					return;
+				}
+			});
+		}
+	});
 
 	console.log(`New offer # ${offer.id} from ${partnerid}`);
 

@@ -1,17 +1,22 @@
 {
-  "username": "",
-  "password": "",
-  "botname": "",
-  "identitySecret": "",
-  "sharedSecret": "",
+  "username": "arzealt",
+  "password": "W4gkKEX5\\)N\"9xd<",
+  "botname": "Arze Bot :)",
+  "identitySecret": "mYq8P4oVcbdusxvOo1Suw3s77wM",
+  "sharedSecret": "FrRqzo0zZ0W6jSjEaRaYpctVoNI=",
   "options": {
+    "acceptRandomFriendRequests": true,
     "priceRefreshInterval": 30,
     "confirmationInterval": 30,
     "percentamount": 0.95,
     "chatResponse": {
       "donation": "Thanks for donating to the bot :) have a nice day",
       "tradeDeclined": "Sorry :/ your trade did not have enough overpay for me to accept I Value my items at 100% and value yours at 95%",
-      "tradeAccepted": "Thanks For trading with XD'S Bot. Hope you have fun with your new skinz"
+      "tradeAccepted": "Thanks For trading with XD'S Bot. Hope you have fun with your new skinz",
+      "newFriend": "Hey m8 thanks for adding my bot",
+      "commands": {
+        "!test": "this is a test command"
+      }
     }
   }
 }

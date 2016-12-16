@@ -52,3 +52,5 @@ jspm_packages
 
 # Steam
 polldata.json
+config.json
+prices.json
