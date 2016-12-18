@@ -100,7 +100,7 @@ manager.on('newOffer', function(offer) {
 			console.log('User has escrow! Declining!');
 			offer.decline((err) => {
 				if(err) {
-					log(prefix + 'Error declining offer!');
+					log('Error declining offer!');
 					return;
 				}
 			});
