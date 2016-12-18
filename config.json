@@ -1,9 +1,9 @@
 {
-  "username": "arzealt",
-  "password": "W4gkKEX5\\)N\"9xd<",
+  "username": "",
+  "password": "",
   "botname": "Arze Bot :)",
-  "identitySecret": "mYq8P4oVcbdusxvOo1Suw3s77wM",
-  "sharedSecret": "FrRqzo0zZ0W6jSjEaRaYpctVoNI=",
+  "identitySecret": "",
+  "sharedSecret": "=",
   "options": {
     "acceptRandomFriendRequests": true,
     "priceRefreshInterval": 30,
