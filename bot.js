@@ -92,7 +92,7 @@ manager.on('newOffer', function(offer) {
 
 	offer.getUserDetails((err, me, them) => {
 		if(err) {
-			log(err);
+			console.log(err);
 			return;
 		}
 
