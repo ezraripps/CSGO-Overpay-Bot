@@ -18,7 +18,7 @@ const manager = new TradeOfferManager({
 });
 
 //Priceing API url
-const priceUrl = 'http://api.arze.io/v1/min'; //My API :)
+const priceUrl = 'https://api.csgofast.com/price/all'; //My API :)
 
 function getPrices(offer) {
 	let offervalue = 0;
