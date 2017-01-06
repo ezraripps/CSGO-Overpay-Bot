@@ -71,6 +71,12 @@ function acceptOffer(offer) {
 	});
 }
 
+function declineOffer(offer) {
+	offer.decline((err) => {
+		if (err) return console.log(`Unable to decline offer: ${err.message}`);
+	});
+}
+
 manager.on('newOffer', function(offer) {
 	const partnerid = offer.partner.getSteamID64();
 
@@ -79,9 +85,7 @@ manager.on('newOffer', function(offer) {
 
 		if(them.escrowDays > 0) {
 			console.log('Trade is in escrow. Declining.');
-			offer.decline((err) => {
-				if(err) return console.log('Error declining offer.', err);
-			});
+			declineOffer(offer);
 		}
 	});
 
@@ -94,9 +98,7 @@ manager.on('newOffer', function(offer) {
 		acceptOffer(offer);
 	} else if (priceItemsInOffer(offer.itemsToGive) > priceItemsInOffer(offer.itemsToReceive) * config.options.percentamount) {
 		client.chatMessage(partnerid, config.options.chatResponse.tradeDeclined); //Sending message when trade declined
-		offer.decline(function(err) { //Declining offer
-			if (err) console.log(`Unable to decline offer: ${err.message}`);
-		});
+		declineOffer(offer);
 	} else {
 		client.chatMessage(partnerid, config.options.chatResponse.tradeAccepted); //Sending message for accepting offer
 		acceptOffer(offer); //accepting offer
