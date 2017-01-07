@@ -5,8 +5,8 @@
   "identitySecret": "",
   "sharedSecret": "=",
   "options": {
-    "apikey": 
-    "appid": 730
+    "apikey":"000000000000", 
+    "appid": "730",
     "minimumprice": 0.40,
     "acceptRandomFriendRequests": true,
     "priceRefreshInterval": 30,
