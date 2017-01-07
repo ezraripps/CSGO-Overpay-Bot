@@ -66,7 +66,7 @@ client.on('friendMessage', (steamID, message) => {
 */
 function acceptOffer(offer) {
 	offer.accept((err) => {
-		if (err) return console.log(`Unable to accept offer: ${err.message}`);
+		if (err) console.log(`Unable to accept offer: ${err.message}`);
 		community.checkConfirmations();
 	});
 }
@@ -101,7 +101,7 @@ manager.on('newOffer', function(offer) {
 		declineOffer(offer);
 	} else {
 		client.chatMessage(partnerid, config.options.chatResponse.tradeAccepted); //Sending message for accepting offer
-		acceptOffer(offer); //accepting offer
+		acceptOffer(offer); 
 	}
 });
 
