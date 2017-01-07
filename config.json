@@ -5,12 +5,16 @@
   "identitySecret": "",
   "sharedSecret": "=",
   "options": {
+    "apikey": 
+    "appid": 730
+    "minimumprice": 0.40,
     "acceptRandomFriendRequests": true,
     "priceRefreshInterval": 30,
     "confirmationInterval": 30,
     "percentamount": 0.95,
     "chatResponse": {
       "donation": "Thanks for donating to the bot :) have a nice day",
+      "junk": "the trade you sent was to cheap for me to accept",
       "tradeDeclined": "Sorry :/ your trade did not have enough overpay for me to accept I Value my items at 100% and value yours at 95%",
       "tradeAccepted": "Thanks For trading with XD'S Bot. Hope you have fun with your new skinz",
       "newFriend": "Hey m8 thanks for adding my bot",
