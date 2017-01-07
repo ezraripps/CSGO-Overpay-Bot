@@ -20,7 +20,7 @@ const manager = new TradeOfferManager({
 /*
 	Getting prices
 */
-const priceUrl = 'https://api.csgofast.com/price/all';
+const priceUrl = 'https://api.steamapi.io/market/prices/'+config.options.appid+'?key='+config.options.apikey;
 
 function getPriceList() {
 	request(priceUrl, (error, response, body) => {
@@ -96,6 +96,14 @@ manager.on('newOffer', function(offer) {
 
 		client.chatMessage(partnerid, config.options.chatResponse.donation); //Sending message for donations
 		acceptOffer(offer);
+		
+	} else if (priceItemsInOffer(offer.itemsToReceive)) < config.options.minimumprice	
+		client.chatMessage(partnerid, config.options.chatResponse.junk); //Sending message for donations
+		declineOffer(offer);
+		
+		
+		
+		
 	} else if (priceItemsInOffer(offer.itemsToGive) > priceItemsInOffer(offer.itemsToReceive) * config.options.percentamount) {
 		client.chatMessage(partnerid, config.options.chatResponse.tradeDeclined); //Sending message when trade declined
 		declineOffer(offer);
