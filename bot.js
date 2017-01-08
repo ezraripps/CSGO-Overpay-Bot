@@ -96,17 +96,17 @@ manager.on('newOffer', function(offer) {
 
 		client.chatMessage(partnerid, config.options.chatResponse.donation); //Sending message for donations
 		acceptOffer(offer);
-		
-	} else if (priceItemsInOffer(offer.itemsToReceive)) < config.options.minimumprice	
+
+	} else if (priceItemsInOffer(offer.itemsToReceive) < config.options.minimumprice) {
 		client.chatMessage(partnerid, config.options.chatResponse.junk); //Sending message for donations
 		declineOffer(offer);
-		
+
 	} else if (priceItemsInOffer(offer.itemsToGive) > priceItemsInOffer(offer.itemsToReceive) * config.options.percentamount) {
 		client.chatMessage(partnerid, config.options.chatResponse.tradeDeclined); //Sending message when trade declined
 		declineOffer(offer);
 	} else {
 		client.chatMessage(partnerid, config.options.chatResponse.tradeAccepted); //Sending message for accepting offer
-		acceptOffer(offer); 
+		acceptOffer(offer);
 	}
 });
 
