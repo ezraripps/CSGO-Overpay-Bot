@@ -101,9 +101,6 @@ manager.on('newOffer', function(offer) {
 		client.chatMessage(partnerid, config.options.chatResponse.junk); //Sending message for donations
 		declineOffer(offer);
 		
-		
-		
-		
 	} else if (priceItemsInOffer(offer.itemsToGive) > priceItemsInOffer(offer.itemsToReceive) * config.options.percentamount) {
 		client.chatMessage(partnerid, config.options.chatResponse.tradeDeclined); //Sending message when trade declined
 		declineOffer(offer);
