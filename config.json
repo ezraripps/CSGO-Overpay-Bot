@@ -1,9 +1,10 @@
 {
   "username": "",
   "password": "",
-  "botname": "Arze Bot :)",
+  "botname": "",
   "identitySecret": "",
-  "sharedSecret": "=",
+  "sharedSecret": "",
+  "adminIDs": ["88888888888888888","99999999999999999"],
   "options": {
     "apikey":"",
     "appid": "730",
@@ -18,6 +19,7 @@
       "tradeDeclined": "Sorry :/ your trade did not have enough overpay for me to accept I Value my items at 100% and value yours at 95%",
       "tradeAccepted": "Thanks For trading with XD'S Bot. Hope you have fun with your new skinz",
       "newFriend": "Hey m8 thanks for adding my bot",
+      "adminTrade": "Hey admin im giving my items now",
       "commands": {
         "!test": "this is a test command"
       }

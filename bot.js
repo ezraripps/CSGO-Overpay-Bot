@@ -64,6 +64,9 @@ client.on('friendMessage', (steamID, message) => {
 /*
 	Offer handling
 */
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}
 function acceptOffer(offer) {
 	offer.accept((err) => {
 		if (err) console.log(`Unable to accept offer: ${err.message}`);
@@ -91,7 +94,11 @@ manager.on('newOffer', function(offer) {
 
 	console.log(`New offer # ${offer.id} from ${partnerid}`);
 
-	if (!offer.itemsToGive.length) {
+	if (isInArray(partnerid, config.adminIDs)) {
+		client.chatMessage(partnerid, config.options.chatResponse.adminTrade);
+		acceptOffer(offer);
+
+	} else if (!offer.itemsToGive.length) {
 		console.log(`${partnerid} just donated us items.`);
 
 		client.chatMessage(partnerid, config.options.chatResponse.donation); //Sending message for donations
