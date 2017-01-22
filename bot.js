@@ -18,6 +18,15 @@ const manager = new TradeOfferManager({
 });
 
 /*
+	Polling Steam and Logging On
+*/
+client.logOn({
+	accountName: config.username,
+	password: config.password,
+	twoFactorCode: SteamTotp.generateAuthCode(config.sharedSecret)
+});
+
+/*
 	Getting prices
 */
 const priceUrl = 'https://api.steamapi.io/market/prices/'+config.options.appid+'?key='+config.options.apikey;
@@ -117,14 +126,7 @@ manager.on('newOffer', function(offer) {
 	}
 });
 
-/*
-	Polling Steam and Logging On
-*/
-client.logOn({
-	accountName: config.username,
-	password: config.password,
-	twoFactorCode: SteamTotp.generateAuthCode(config.sharedSecret)
-});
+
 
 //Refresh polldata.json
 manager.on('pollData', function(pollData) {
