@@ -10,7 +10,7 @@
     "appid": "730",
     "minimumprice": 0.40,
     "acceptRandomFriendRequests": true,
-    "priceRefreshInterval": 30,
+    "priceRefreshInterval": 3600,
     "confirmationInterval": 30,
     "percentamount": 0.95,
     "chatResponse": {
