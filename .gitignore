@@ -20,3 +20,4 @@ jspm_packages
 .yarn-integrity
 polldata.json
 config.json
+prices.json

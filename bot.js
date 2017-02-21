@@ -32,6 +32,9 @@ client.logOn({
 const priceUrl = 'https://api.steamapi.io/market/prices/'+config.options.appid+'?key='+config.options.apikey;
 
 function getPriceList() {
+	if(config.options.apikey == "API Key from https://steamapi.io/user") {
+		return console.log(`Missing API key, check config file.`);
+	}
 	request(priceUrl, (error, response, body) => {
 		if (error || response.statusCode !== 200) return console.log(`Error: ${error} - Status Code: ${response.statusCode}`);
 		fs.writeFile('prices.json', body);
@@ -139,7 +142,7 @@ if (fs.existsSync('polldata.json')) {
 
 client.on('loggedOn', function(details) {
 	console.log(`Logged into Steam as ${client.steamID.getSteam3RenderedID()}`);
- 	client.setPersona(SteamUser.Steam.EPersonaState.Online,config.botname);
+ 	client.setPersona(SteamUser.Steam.EPersonaState.Online, config.botname);
 });
 
 client.on('webSession', function(sessionID, cookies) {
