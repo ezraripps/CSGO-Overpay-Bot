@@ -105,6 +105,17 @@ manager.on('newOffer', function(offer) {
 	});
 
 	console.log(`New offer # ${offer.id} from ${partnerid}`);
+	
+	if(config.minItemValue != 0) {
+		for(let item in offer.items) {
+			if(prices[item.market_hash_name] <= config.minItemValue) {
+				return offer.decline(function() {
+					if(err) { throw err; }
+					console.log(`Declined, price under threshold`);
+				});
+			}
+		}
+	}
 
 	if (isInArray(partnerid, config.adminIDs)) {
 		client.chatMessage(partnerid, config.options.chatResponse.adminTrade);
