@@ -13,6 +13,7 @@
     "priceRefreshInterval": 3600,
     "confirmationInterval": 30,
     "percentamount": 0.95,
+    "minItemValue": 0.00,
     "chatResponse": {
       "donation": "Thanks for donating to the bot :) have a nice day",
       "junk": "the trade you sent was to cheap for me to accept",
