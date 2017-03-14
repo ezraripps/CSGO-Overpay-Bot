@@ -43,7 +43,9 @@ function priceItemsInOffer(offer) {
 	if (offer) {
 		const prices = require('./prices.json'); //Requiring price file
 		//Loop through offer and get total price
-		offerValue += offer.reduce((total, item) => total + prices[item.market_hash_name]);
+		for (var x in offer) {
+			offerValue += prices[offer[x].market_hash_name]
+		}
 	}
 	return offerValue;
 }
