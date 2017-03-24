@@ -12,6 +12,7 @@ const config = require('./config.json');
 const community = new SteamCommunity();
 const client = new SteamUser();
 const manager = new TradeOfferManager({
+	
 	steam: client,
 	domain: 'example.com',
 	language: 'en'
@@ -69,6 +70,9 @@ client.on('friendMessage', (steamID, message) => {
 	console.log(config.options.chatResponse.commands[message]);
 	if (config.options.chatResponse.commands[message]) {
 		client.chatMessage(steamID, config.options.chatResponse.commands[message]);
+	}
+	else {
+		client.chatMessage(steamID, config.options.chatResponse.unknownCommand);
 	}
 });
 
@@ -142,6 +146,7 @@ if (fs.existsSync('polldata.json')) {
 client.on('loggedOn', function(details) {
 	console.log(`Logged into Steam as ${client.steamID.getSteam3RenderedID()}`);
  	client.setPersona(SteamUser.Steam.EPersonaState.Online,config.botname);
+	client.gamesPlayed([730])
 });
 
 client.on('webSession', function(sessionID, cookies) {
