@@ -30,6 +30,7 @@ TO GET A API KEY GO TO https://steamapi.io/user AND LOGIN WITH STEAM
 		- `tradeDeclined` Message to send when users items have less value then bots items
 		- `tradeAccepted` Message to send when trade goes through
 		- `newFriend` Message to send to user when they add the bot
+		- `unknownCommand` Message to send to user when they send you a message that is not a command
 		- `adminTrade` Sent to admin when they make a (auto-accepted) trade to the bot NOTE: admins can be configured in `adminIDs`
 		- `commands` Custom simple commands, JSON object in form of "!command"
 : "res"
