@@ -24,6 +24,7 @@ TO GET A API KEY GO TO https://steamapi.io/user AND LOGIN WITH STEAM
 	- `priceRefreshInterval` Time (in seconds) to refresh price
 	- `confirmationInterval` Time (in seconds) to check mobile auth
 	- `percentamount` Percent to value their items at EX: 95% would be 0.95 in config
+	- `minPricePerItem` Minimum price for a item to be worth anything EX: if set to .10 any item under 10 cents would be worth nothing
 	- `chatResponse` Chat message handling
 		- `donation` Message to send to user when they donate skins
 		- `junk` Message to send when users items are less then `minimunprice`
