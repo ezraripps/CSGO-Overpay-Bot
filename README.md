@@ -1,9 +1,11 @@
 # CSGO-Overpay-bot
 
 ### Setup
-
+If you havent done so already please install nodejs
+Open windows start menu and find cmd.exe (command prompt) and open it
+Then follow theese steps
 ```BASH
-  CD {the dir of the folder}
+  cd {the dir of the folder} //EX: cd C:/users/arze/desktop/CSGO-Overpay-Bot 
   npm i
   node bot.js
 ```
