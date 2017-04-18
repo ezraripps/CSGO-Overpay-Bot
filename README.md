@@ -1,32 +1,32 @@
 # CSGO-Overpay-bot
 
 ### Setup
-If you havent done so already please install nodejs
-Open windows start menu and find cmd.exe (command prompt) and open it
-Then follow theese steps
+If you haven't done so already please install nodejs.
+Open windows start menu and find cmd.exe (command prompt) and open it.
+Then follow these steps:
 ```BASH
   cd {the dir of the folder} //EX: cd C:/users/arze/desktop/CSGO-Overpay-Bot 
   npm i
   node bot.js
 ```
-Then add your ussername,password,secrets and api key to config
+Add your username, password, secrets, and api key to config for the bot to work correctly.
 
-TO GET A API KEY GO TO https://steamapi.io/user AND LOGIN WITH STEAM
+TO GET A API KEY GO TO https://steamapi.io/user AND LOGIN WITH STEAM. THIS IS NOT A STEAMCOMMUNITY API KEY!
 
 ### Config elements
-- `username` AND `password` pretty easy to understand
+- `username` AND `password` are the credentials of your steam account you will be using for the bot.
 - `botname` What you want the bots profile name to be, leave blank to not change
 - `identitySecret` AND `sharedSecret` You get theese from [Steam Desktop Authenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator/releases/tag/1.0.7.2) and de-crypting the files
 - `adminIDs` An array of steam64 ids to auto-accept trades from
 - `options`
 	- `apiKey` An api key from https://steamapi.io/ as mentioned above
-	- `appid` App id to get prices from, 730 (CS:GO) is default not tested to work with others but could
+	- `appid` AppID to get prices from. 730 (CS:GO) is default id. Other ID's are not tested to work, but still may.
 	- `minimumprice` Minium value for their items
-	- `acceptRandomFriendRequests` true OR false, easy to understand
-	- `priceRefreshInterval` Time (in seconds) to refresh price
-	- `confirmationInterval` Time (in seconds) to check mobile auth
-	- `percentamount` Percent to value their items at EX: 95% would be 0.95 in config
-	- `minPricePerItem` Minimum price for a item to be worth anything EX: if set to .10 any item under 10 cents would be worth nothing
+	- `acceptRandomFriendRequests` boolean value, accepts any friend requests sent to the provided bot account.
+	- `priceRefreshInterval` Time (in seconds) to renew pricelist
+	- `confirmationInterval` Time (in seconds) to check mobile trade authentication.
+	- `percentamount` Percent to value users items at. ex: 95% would be 0.95 in config
+	- `minPricePerItem` Minimum price for items for them to be valued. ex: if set to 0.10 any item under 10 cents would be worth nothing
 	- `chatResponse` Chat message handling
 		- `donation` Message to send to user when they donate skins
 		- `junk` Message to send when users items are less then `minimunprice`
