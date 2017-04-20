@@ -35,8 +35,7 @@ const priceUrl = 'https://api.steamapi.io/market/prices/' + config.options.appid
 function getPriceList() {
 	if (!config.options.apikey) {
 		console.log("UNABLE TO GET PRICELIST: steamapi.io API key not given. Please provide API key in config.json");
-		process.exit(1);
-		return;
+		return process.exit(1);
 	}
 	request(priceUrl, (error, response, body) => {
 		if (error || response.statusCode !== 200) return console.log(`Error: ${error} - Status Code: ${response.statusCode}`);
