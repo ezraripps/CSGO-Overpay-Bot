@@ -30,9 +30,13 @@ client.logOn({
 /*
 	Getting prices
 */
-const priceUrl = 'https://api.steamapi.io/market/prices/'+config.options.appid+'?key='+config.options.apikey;
+const priceUrl = 'https://api.steamapi.io/market/prices/' + config.options.appid + '?key=' + config.options.apikey;
 
 function getPriceList() {
+	if (!config.options.apikey) {
+		console.log("UNABLE TO GET PRICELIST: steamapi.io API key not given. Please provide API key in config.json");
+		return process.exit(1);
+	}
 	request(priceUrl, (error, response, body) => {
 		if (error || response.statusCode !== 200) return console.log(`Error: ${error} - Status Code: ${response.statusCode}`);
 		fs.writeFile('prices.json', body);
@@ -59,10 +63,10 @@ setInterval(getPriceList, config.options.priceRefreshInterval * 1000);
 /*
 	Friend requests and chat
 */
-client.on('friendRelationship', (steamid, relationship) => {
+client.on('friendRelationship', (steamID, relationship) => {
 	if (relationship === 2 && config.options.acceptRandomFriendRequests) {
-		client.addFriend(steamid);
-		client.chatMessage(steamid, config.options.chatResponse.newFriend);
+		client.addFriend(steamID);
+		client.chatMessage(steamID, config.options.chatResponse.newFriend);
 	}
 });
 
@@ -96,7 +100,7 @@ function declineOffer(offer) {
 }
 
 manager.on('newOffer', function(offer) {
-	const partnerid = offer.partner.getSteamID64();
+	const partnerID = offer.partner.getSteamID64();
 
 	offer.getUserDetails((err, me, them) => {
 		if(err) return console.log(err);
@@ -107,27 +111,27 @@ manager.on('newOffer', function(offer) {
 		}
 	});
 
-	console.log(`New offer # ${offer.id} from ${partnerid}`);
+	console.log(`New offer # ${offer.id} from ${partnerID}`);
 
-	if (isInArray(partnerid, config.adminIDs)) {
-		client.chatMessage(partnerid, config.options.chatResponse.adminTrade);
+	if (isInArray(partnerID, config.adminIDs)) {
+		client.chatMessage(partnerID, config.options.chatResponse.adminTrade);
 		acceptOffer(offer);
 
 	} else if (!offer.itemsToGive.length) {
-		console.log(`${partnerid} just donated us items.`);
+		console.log(`${partnerID} just donated us items.`);
 
-		client.chatMessage(partnerid, config.options.chatResponse.donation); //Sending message for donations
+		client.chatMessage(partnerID, config.options.chatResponse.donation); //Sending message for donations
 		acceptOffer(offer);
 
 	} else if (priceItemsInOffer(offer.itemsToReceive) < config.options.minimumprice) {
-		client.chatMessage(partnerid, config.options.chatResponse.junk); //Sending message for donations
+		client.chatMessage(partnerID, config.options.chatResponse.junk); //Sending message for donations
 		declineOffer(offer);
 
 	} else if (priceItemsInOffer(offer.itemsToGive) > priceItemsInOffer(offer.itemsToReceive) * config.options.percentamount) {
-		client.chatMessage(partnerid, config.options.chatResponse.tradeDeclined); //Sending message when trade declined
+		client.chatMessage(partnerID, config.options.chatResponse.tradeDeclined); //Sending message when trade declined
 		declineOffer(offer);
 	} else {
-		client.chatMessage(partnerid, config.options.chatResponse.tradeAccepted); //Sending message for accepting offer
+		client.chatMessage(partnerID, config.options.chatResponse.tradeAccepted); //Sending message for accepting offer
 		acceptOffer(offer);
 	}
 });
