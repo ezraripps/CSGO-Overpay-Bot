@@ -43,7 +43,7 @@ TO GET A API KEY GO TO https://steamapi.io/user AND LOGIN WITH STEAM. THIS IS NO
 
 
 ### CONTRBUTING
-If you want to contrubuite you must follow theese rules
+If you want to contribute you must follow these rules
 - Adding elements to config requires you to update README.md
 - You must comment your code sufficently
 - You have to add enough for it to be merged, EX: i will not merge adding one comment
